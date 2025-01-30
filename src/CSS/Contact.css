@@ -1,0 +1,51 @@
+/* Contact.css */
+.contact-container {
+  background-color: #e4ded5; /* Match to #c8bcb0 for consistency */
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+h2 {
+  color: #5b5348;
+}
+
+form {
+  width: 80%;
+  margin: 1rem auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4a4135;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #c8bcb0;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #ff914d;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff7831; /* Darker shade for hover effect */
+}

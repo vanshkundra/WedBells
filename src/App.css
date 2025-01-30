@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/* Media Query for Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .App-logo {
+    height: 30vmin; /* Reduce logo size for tablets */
+  }
+
+  .App-header {
+    font-size: calc(8px + 2vmin); /* Adjust font size */
+    padding: 20px; /* Add some padding for better spacing */
+  }
+}
+
+/* Media Query for Mobile Phones (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .App-logo {
+    height: 20vmin; /* Further reduce logo size for mobile */
+  }
+
+  .App-header {
+    font-size: calc(6px + 2vmin); /* Further reduce font size */
+    padding: 15px; /* Adjust padding for mobile */
+  }
+
+  .App-link {
+    font-size: 1.2rem; /* Make links slightly larger for touch */
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

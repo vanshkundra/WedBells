@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Bhushan Kundra",
+    "email": "vanshkundra@gmail.com",
+    "eventType": "Wedding",
+    "date": "2025-01-31",
+    "message": "sdvsdvdsvsd",
+    "status": "Pending",
+    "id": 1
+  },
+  {
+    "name": "Simran Kundra",
+    "email": "simran.kundra08@gmail.com",
+    "eventType": "Wedding",
+    "date": "2025-02-14",
+    "message": "Jaldi reply kr bhen ke deene",
+    "status": "Pending",
+    "id": 2
+  },
+  {
+    "name": "Bhushan Kundra",
+    "email": "simran.kundra08@gmail.com",
+    "eventType": "Wedding",
+    "date": "2025-01-31",
+    "message": "sdvsdv",
+    "status": "Pending",
+    "id": 3
+  },
+  {
+    "name": "Suraksha Pruthi",
+    "email": "vanshkundra@gmail.com",
+    "eventType": "Corporate",
+    "date": "2025-01-30",
+    "message": "fdsfasd",
+    "status": "Pending",
+    "id": 4
+  },
+  {
+    "name": "Simran Kundra",
+    "email": "vanshkundra@gmail.com",
+    "eventType": "Birthday",
+    "date": "2025-01-31",
+    "message": "sdfasd",
+    "status": "Pending",
+    "id": 5
+  },
+  {
+    "name": "Vansh Kundra",
+    "email": "vanshkundra@gmail.com",
+    "eventType": "Wedding",
+    "date": "2025-01-31",
+    "message": "sdafs",
+    "status": "Pending",
+    "id": 6
+  }
+]

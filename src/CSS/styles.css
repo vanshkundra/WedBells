@@ -1,0 +1,140 @@
+/* CSS/styles.css */
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c8bcb0; /* Updated background color */
+    color: #333; /* Text color */
+    line-height: 1.6;
+  }
+  
+  /* Navbar Styling */
+  nav {
+    background-color: #5b5348; /* Darker brown for contrast */
+    color: #ffffff; /* White text for visibility */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav h1 {
+    font-size: 1.5rem;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin: 0 1rem;
+  }
+  
+  nav ul li a {
+    color: #ffffff; /* White text for links */
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  nav ul li a:hover {
+    color: #e8d9c1; /* Light cream for hover effect */
+  }
+  
+  /* Home Page Styling */
+  .home-container {
+    text-align: center;
+   
+  }
+  
+  .home-container h2 {
+    margin-top: 10px;
+    width: 50%;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #5b5348; /* Darker brown for headings */
+  }
+  
+  .home-container p {
+    font-size: 1.2rem;
+    color: #4a4135; /* Muted brown for paragraph text */
+  }
+  
+  /* Events Page Styling */
+  .events-container ul {
+    padding: 1rem;
+    list-style: none;
+  }
+  
+  .events-container ul li {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+    color: #4a4135; /* Consistent muted brown for text */
+  }
+  
+  /* Book an Event Page Styling */
+  .book-event-container {
+    padding: 2rem;
+  }
+  
+  .book-event-container form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .book-event-container input,
+  .book-event-container select,
+  .book-event-container button {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #4a4135; /* Muted brown border for form elements */
+    border-radius: 5px;
+  }
+  
+  .book-event-container button {
+    background-color: #5b5348; /* Button with darker brown background */
+    color: #ffffff; /* White text on button */
+    border: none;
+    cursor: pointer;
+  }
+  
+  .book-event-container button:hover {
+    background-color: #7d7363; /* Slightly lighter brown for hover */
+  }
+  
+  /* Contact Page Styling */
+  .contact-container {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .contact-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #5b5348;
+  }
+  
+  .contact-container p {
+    font-size: 1.1rem;
+    color: #4a4135;
+  }
+  
+  /* Bookings Page Styling */
+  .bookings-container {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .bookings-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #5b5348;
+  }
+  
+  .bookings-container p {
+    font-size: 1.2rem;
+    color: #4a4135;
+  }
+  
