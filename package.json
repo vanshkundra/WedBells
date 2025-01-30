@@ -28,7 +28,7 @@
     "eslint-plugin-react": "^7.37.2",
     "vite": "^4.0.0"
   },
-  "main": "server.js",  // This should point to your backend entry file
+  "main": "server.js",  
   "description": "MERN stack project with Vite for frontend",
   "keywords": [],
   "author": "",
