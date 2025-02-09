@@ -23,18 +23,23 @@ const BookEvent = () => {
     setLoading(true);
     setError(null);
     
+    const token = localStorage.getItem("token"); // Retrieve token
+
     try {
       const response = await fetch('http://localhost:5000/api/bookings', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` // Send token in headers
+        },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         navigate('/thank-you');
       } else {
-        const errorMessage = await response.text();
-        setError(errorMessage || 'Failed to book event.');
+        const errorMessage = await response.json();
+        setError(errorMessage.message || 'Failed to book event.');
       }
     } catch (error) {
       setError('Network error, please try again later.');

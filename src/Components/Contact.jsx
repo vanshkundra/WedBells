@@ -25,13 +25,14 @@ const Contact = () => {
       if (response.ok) {
         alert('Your message has been sent!');
       } else {
-        alert('Failed to send message.');
+        const result = await response.json();
+        alert(result.message || 'Failed to send message.');
       }
     } catch (error) {
       console.error('Error submitting contact message:', error);
+      alert('An error occurred while sending the message.');
     }
   };
-  
 
   return (
     <div className="contact-container">
@@ -63,6 +64,7 @@ const Contact = () => {
             name="message"
             value={contactData.message}
             onChange={handleChange}
+            required
           ></textarea>
         </div>
         <button type="submit">Send Message</button>
