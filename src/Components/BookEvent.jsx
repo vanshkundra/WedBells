@@ -36,12 +36,14 @@ const BookEvent = () => {
       });
 
       if (response.ok) {
-        navigate('/thank-you');
+        console.log('✅ Booking successful. Navigating...'); // Debugging
+        navigate('/thank-you'); // Navigate after success
       } else {
         const errorMessage = await response.json();
         setError(errorMessage.message || 'Failed to book event.');
       }
     } catch (error) {
+      console.error('❌ Network error:', error); // Debugging
       setError('Network error, please try again later.');
     } finally {
       setLoading(false);

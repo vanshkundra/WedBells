@@ -5,7 +5,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { mongoConnect, getDb } = require('./Database/database');
 const User = require('./Database/User');
-
+const Event = require('./Database/Event'); // Corrected ✅
+const sendEmail = require('./Database/sendEmail'); // Added sendEmail utility ✅
 const app = express();
 const PORT = 5000;
 const JWT_SECRET = 'yourJWTSecret';
@@ -65,37 +66,51 @@ const verifyToken = (req, res, next) => {
     }
 };
 
-// Contact Message Route (POST /api/contact)
-app.post('/api/contact', async (req, res) => {
-    const { name, email, message } = req.body;
+// Booking Route
+app.post('/api/bookings', verifyToken, async (req, res) => {
+    const { name, email, eventType, date, message } = req.body;
 
-    // Ensure all necessary fields are provided
-    if (!name || !email || !message) {
-        return res.status(400).json({ message: 'Missing required fields' });
+    if (!name || !email || !eventType || !date) {
+        return res.status(400).json({ message: 'All fields are required.' });
     }
 
     try {
-        const db = getDb();
-        if (!db) return res.status(500).json({ message: 'Database connection failed' });
-
-        const newContactMessage = {
-            name,
-            email,
-            message,
-            date: new Date() // Optionally add a timestamp
-        };
-
-        const result = await db.collection('ContactMessages').insertOne(newContactMessage);
+        const newEvent = new Event(name, email, eventType, date, message);
+        const result = await newEvent.save();
         
         if (!result.insertedId) {
-            throw new Error('Contact message insertion failed');
+            throw new Error('Failed to save event');
         }
 
-        console.log('Contact message saved:', newContactMessage);
-        res.status(201).json({ message: 'Message sent successfully', contactId: result.insertedId });
+        console.log('Event booked successfully:', result);
+
+        const confirmationMessage = `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; background-color: #f9f9f9;">
+                <h2 style="color: #4CAF50; text-align: center;">🎉 Event Booking Confirmation 🎉</h2>
+                <p style="font-size: 16px; color: #333;">Dear <strong>${name}</strong>,</p>
+                <p style="font-size: 16px; color: #333; line-height: 1.6;">
+                    Your event of type <strong style="color: #4CAF50;">${eventType}</strong> is successfully booked for 
+                    <strong style="color: #FF5733;">${date}</strong>.
+                </p>
+                <p style="font-size: 16px; color: #333;">We will contact you soon to discuss further details.</p>
+                <hr style="border: 0; height: 1px; background-color: #ccc;">
+                <p style="font-size: 14px; color: #777; text-align: center;">
+                    Thank you for choosing <strong>WedBells</strong>! ❤️
+                </p>
+                <div style="margin-top: 20px; padding: 10px; background-color: #f1f1f1; border-radius: 8px; text-align: center;">
+                    <p style="font-size: 14px; margin: 5px 0;"><strong>Vansh Kundra</strong></p>
+                    <p style="font-size: 14px; margin: 5px 0;">📧 <a href="mailto:vanshkundraofficial@gmail.com" style="color: #4CAF50;">vanshkundraofficial@gmail.com</a></p>
+                    <p style="font-size: 14px; margin: 5px 0;">📞 <a href="tel:+919953060793" style="color: #FF5733;">+91-9953060793</a></p>
+                </div>
+            </div>
+        `;
+
+        await sendEmail(email, '🎉 Event Booking Confirmation - WedBells', confirmationMessage);
+
+        res.status(201).json({ message: 'Event booked successfully. Confirmation email sent.' });
     } catch (error) {
-        console.error('Contact message error:', error);
-        res.status(500).json({ message: 'Failed to send message', error: error.message });
+        console.error('Event booking error:', error);
+        res.status(500).json({ message: 'Failed to book event', error: error.message });
     }
 });
 

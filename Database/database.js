@@ -7,14 +7,14 @@ let _db;
 
 const mongoConnect = (callback) => {
     MongoClient.connect(MONGO_URL)
-    .then(client => {
-        console.log('Connected to MongoDB');
-        _db = client.db();
-        callback(client);
-    })
-    .catch(err => {
-        console.error('Error connecting to MongoDB:', err);
-    });
+        .then(client => {
+            console.log('Connected to MongoDB');
+            _db = client.db();
+            callback(client);
+        })
+        .catch(err => {
+            console.error('Error connecting to MongoDB:', err);
+        });
 };
 
 const getDb = () => {

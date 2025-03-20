@@ -1,16 +1,16 @@
 const { getDb } = require('./database');
 
-module.exports = class Events {
-    constructor(Name, Email, EventType, Date, Message) {
-        this.Name = Name;
-        this.Email = Email;
-        this.EventType = EventType;
-        this.Date = Date;
-        this.Message = Message;
+module.exports = class Event {
+    constructor(name, email, eventType, date, message) {
+        this.name = name;
+        this.email = email;
+        this.eventType = eventType;
+        this.date = date;
+        this.message = message;
     }
 
     save() {
-        const db = getDb(); 
-        return db.collection('Events').insertOne(this);
+        const db = getDb();
+        return db.collection('Bookings').insertOne(this);
     }
 };
