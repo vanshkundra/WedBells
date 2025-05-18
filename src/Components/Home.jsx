@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import wedding from '../assets/Weddings.jpg';
 import birthday from '../assets/Birthdays.jpg';
@@ -7,10 +7,21 @@ import '../CSS/Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    setIsAuthenticated(!!token);
+  }, []);
+
+  const handleCheckAvailability = () => {
+    console.log('Navigating to calendar...');
+    navigate('/calendar');
+  };
 
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = '/VanshKundra.pdf'; // Ensure this points to the correct path in the public folder
+    link.href = '/VanshKundra.pdf';
     link.download = 'VanshKundra.pdf';
     document.body.appendChild(link);
     link.click();
@@ -23,17 +34,28 @@ const Home = () => {
         <div className="hero-content">
           <h1>Welcome to WedBells</h1>
           <p>Your perfect event planning partner. From weddings to corporate events, we make every occasion special.</p>
-          <button className="hero-button" onClick={() => navigate('/events')}>
-            Explore Events
-          </button>
+          
+          {/* Button group */}
+          <div className="hero-buttons">
+            <button className="hero-button" onClick={() => navigate('/events')}>
+              Explore Events
+            </button>
+            {isAuthenticated && (
+              <button className="check-availability-button" onClick={handleCheckAvailability}>
+                Check Availability
+              </button>
+            )}
+          </div>
         </div>
       </section>
 
+      {/* About Us section */}
       <section className="about-us">
         <h2>Why Choose Us?</h2>
         <p>With years of experience in organizing memorable events, we guarantee an event you will never forget. Our team is dedicated to crafting unique experiences tailored to your preferences and budget.</p>
       </section>
 
+      {/* Featured Events */}
       <section className="featured-events">
         <div className="featured-title">Our Featured Events</div>
         <div className="events-grid">
@@ -55,7 +77,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer Section */}
+      {/* Footer */}
       <footer className="footer">
         <p>
           <span className="resume-link" onClick={handleDownload}>Developed by Vansh Kundra</span>

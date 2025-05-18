@@ -1,0 +1,108 @@
+/* Container for the whole calendar section */
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background-color: #d3c5b2;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 2rem auto;
+  max-width: 90%;
+}
+
+/* Center the calendar itself */
+.react-calendar {
+  background: white;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Center month and navigation */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.react-calendar__navigation button {
+  background: none;
+  border: none;
+  color: #5b5348;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: bold;
+  color: #5b5348;
+}
+
+.react-calendar__tile {
+  height: 40px;
+  width: 40px;
+  margin: 4px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Available and unavailable styling */
+.available-date {
+  background-color: green !important;
+  color: white !important;
+}
+
+.disabled-date {
+  background-color: red !important;
+  color: white !important;
+}
+
+/* Hover effect */
+.react-calendar__tile:hover {
+  transform: scale(1.1);
+  background-color: #f0f0f0;
+}
+
+/* Legend section */
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.legend-item {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.available {
+  color: green;
+}
+
+.unavailable {
+  color: red;
+}
+
+/* Responsive calendar layout */
+@media (max-width: 600px) {
+  .calendar-container {
+    padding: 1rem;
+  }
+
+  .react-calendar__tile {
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    font-size: 0.85rem;
+  }
+}

@@ -7,6 +7,7 @@ import BookEvent from './Components/BookEvent';
 import Contact from './Components/Contact';
 import ThankYou from './Components/ThankYou';
 import LoginSignup from './Components/LoginSignup';
+import EventCalendar from './Components/EventCalendar'; // ✅ Import the calendar
 import './CSS/styles.css';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="/book-event" element={<BookEvent />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/calendar" element={<EventCalendar />} /> {/* Add the calendar route */}
             <Route path="*" element={<Navigate to="/" />} />
           </>
         )}

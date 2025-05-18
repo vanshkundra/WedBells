@@ -24,13 +24,28 @@ body {
   max-width: 1600px;
 }
 
-.hero-button {
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.hero-button,
+.check-availability-button {
   background-color: #ff914d;
   border: none;
   padding: 10px 20px;
   color: white;
   font-size: 1rem;
   cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.hero-button:hover,
+.check-availability-button:hover {
+  background-color: #e97b35;
 }
 
 .about-us {
@@ -79,11 +94,11 @@ body {
 
 @media screen and (max-width: 768px) {
   .events-grid {
-    grid-template-columns: 1fr; /* Display events in a single column */
+    grid-template-columns: 1fr;
   }
 }
 
-/* Updated styles for clickable and hover effect */
+/* Resume link styles */
 .resume-link {
   cursor: pointer;
   color: #007bff;
